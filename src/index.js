@@ -1,15 +1,14 @@
-import sequelize from "../config/database";
-import User from "../models/User";
+import sequelize from "../config/database.js";
 
 try {
+    console.log("TRY");
     await sequelize.authenticate();
     console.log("Database conected");
 
-    User.sync();
-
-
 } catch (error) {
+    console.log("ERRO");
     console.log("Error to conect/insert on database:", error);
 } finally {
+    console.log("CLOSE");
     sequelize.close();
 }
